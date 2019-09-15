@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClasesMarcacion
 {
-    class TipoHora
+    public class TipoHora
     {
-        private int Id { get; set; }
-        private String descripcion { get; set; }
+        public int Id { get; set; }
+        public String descripcion { get; set; }
 
         public TipoHora() {  }
 
