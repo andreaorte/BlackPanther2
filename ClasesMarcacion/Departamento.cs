@@ -6,19 +6,46 @@ using System.Threading.Tasks;
 
 namespace ClasesMarcacion
 {
-    class Departamento
+    public class Departamento
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public String descripcion { get; set; }
 
         public Departamento() { }
-        public Departamento(int Id, string descripcion)
+        public Departamento(string Id, string descripcion)
         {
 
             this.Id = Id;
             this.descripcion = descripcion;
 
         }
-                     
+
+        public override string ToString()
+        {
+            return descripcion;
+        }
+        public static List<Departamento> listaDepartamentos = new List<Departamento>();
+
+        public static List<Departamento> ObtenerDepartamentos()
+        {
+            return listaDepartamentos;
+        }
+
+        public static void AgregarDepartamento(Departamento d)
+        {
+            listaDepartamentos.Add(d);
+        }
+
+        public static void EliminarDepartamento(Departamento d)
+        {
+            listaDepartamentos.Remove(d);
+        }
+
+        public static void EditarDepartamento(Departamento d, int indice)
+        {
+
+            Departamento.listaDepartamentos[indice] = d;
+        }
+
     }
 }
