@@ -5,14 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using ClasesMarcacion;
 
+
 namespace Marker
 {
-    class Program
+   static class Program
     {
-        static void Main(string[] args)
+        [STAThread]
+        static void Main()
         {
-            Console.WriteLine("Hola Mundo");
-            Console.WriteLine("Sistema de control de Marcación");
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new frmMenuPrincipal());
         }
     }
 }
