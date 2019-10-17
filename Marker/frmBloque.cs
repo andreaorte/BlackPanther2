@@ -240,6 +240,12 @@ namespace Marker
 
         }
 
-
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            modo = "AGREGAR";
+            LimpiarFormulario();
+            DesbloquearFormulario();
+            cbobNombre.Focus();
+        }
     }
 }
