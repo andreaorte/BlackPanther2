@@ -57,11 +57,6 @@ namespace Marker
             Bloque bloque = new Bloque();
             bloque.CodigoHumano = txtbCodigoHumano.Text;
             bloque.FechaInicio = dtpbFechaInicio.Value.Date;
-            bloque.FechaFin = dtpbFechaFin.Value.Date;
-
-            bloque.NombreUsuario = (User)cbobNombre.SelectedItem;
-
-
             if (rbubDiurna.Checked)
             {
                 bloque.Tipo_Hora = TipoHora.Diurna;
@@ -70,6 +65,12 @@ namespace Marker
             {
                 bloque.Tipo_Hora = TipoHora.Nocturna;
             }
+
+            bloque.FechaFin = dtpbFechaFin.Value.Date;
+
+            bloque.NombreUsuario = (User)cbobNombre.SelectedItem;
+
+
 
             return bloque;
         }

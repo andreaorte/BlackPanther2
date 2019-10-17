@@ -17,6 +17,16 @@ namespace ClasesMarcacion
 
         public static List<User> listaUser  = new List<User>();
 
+        public User() { }
+
+        public User(string nombreapellido, string codigohumano, DateTime fechaingreso)
+        {
+            this.NombreApellido = nombreapellido;
+            this.CodigoHumano = codigohumano;
+            this.FechaIngreso = fechaingreso;
+
+        }
+
         public static void AgregarUser(User u)
         {
             listaUser.Add(u);

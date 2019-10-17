@@ -29,6 +29,17 @@ namespace ClasesMarcacion
             return listaBloque;
         }
 
+        public Bloque() { }
+
+        public Bloque(string codigoHumano, DateTime fechainicio, DateTime fechafin)
+        {
+            this.CodigoHumano = codigoHumano;
+            this.FechaInicio = fechainicio;
+            this.FechaFin = fechafin;
+
+        }
+
+
         //Metodo para Agregar Proveedores
 
         public static void AgregarBloque(Bloque b)
