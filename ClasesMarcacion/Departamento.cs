@@ -11,6 +11,7 @@ namespace ClasesMarcacion
         public string Id { get; set; }
         public String descripcion { get; set; }
 
+        public static List<Departamento> listaDepartamento = new List<Departamento>();
         public Departamento() { }
         public Departamento(string Id, string descripcion)
         {
@@ -47,5 +48,9 @@ namespace ClasesMarcacion
             Departamento.listaDepartamentos[indice] = d;
         }
 
+        public static List<Departamento> ObtenerDepartamento()
+        {
+            return listaDepartamento;
+        }
     }
 }

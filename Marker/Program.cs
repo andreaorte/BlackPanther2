@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using ClasesMarcacion;
+
 
 namespace Marker
 {
@@ -11,8 +13,10 @@ namespace Marker
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hola Mundo");
-            Console.WriteLine("Sistema de control de Marcación");
+             Application.EnableVisualStyles();
+             Application.SetCompatibleTextRenderingDefault(false);
+             Application.Run(new frmUsuario());
+       
         }
     }
 }

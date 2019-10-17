@@ -11,6 +11,7 @@ namespace ClasesMarcacion
         public String idCargo { get; set; }
         public String descripcion { get; set; }
 
+        public static List<Cargo> listaCargo = new List<Cargo>();
         public Cargo() { }
         public Cargo(string idCargo, String decripcion)
         {
@@ -43,6 +44,10 @@ namespace ClasesMarcacion
         {
 
             Cargo.listaCargos[indice] = c;
+        }
+        public static List<Cargo> ObtenerCargo()
+        {
+            return listaCargo;
         }
     }
 }

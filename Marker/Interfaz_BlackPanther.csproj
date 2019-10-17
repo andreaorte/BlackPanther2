@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBloque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBloque.Designer.cs">
+      <DependentUpon>frmBloque.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCargo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +62,18 @@
     </Compile>
     <Compile Include="frmDepartamento.Designer.cs">
       <DependentUpon>frmDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuario.Designer.cs">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,11 +88,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmBloque.resx">
+      <DependentUpon>frmBloque.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCargo.resx">
       <DependentUpon>frmCargo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDepartamento.resx">
       <DependentUpon>frmDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuario.resx">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
