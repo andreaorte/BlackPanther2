@@ -16,7 +16,7 @@ namespace Marker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCargo());
+            Application.Run(new frmMenu());
         }
     }
 }

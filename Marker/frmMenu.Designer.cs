@@ -1,6 +1,6 @@
 ﻿namespace Marker
 {
-    partial class Menu
+    partial class frmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -63,24 +63,28 @@
             this.bloqueToolStripMenuItem.Name = "bloqueToolStripMenuItem";
             this.bloqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bloqueToolStripMenuItem.Text = "Bloque";
+            this.bloqueToolStripMenuItem.Click += new System.EventHandler(this.bloqueToolStripMenuItem_Click);
             // 
             // cargoToolStripMenuItem
             // 
             this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
             this.cargoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cargoToolStripMenuItem.Text = "Cargo";
+            this.cargoToolStripMenuItem.Click += new System.EventHandler(this.cargoToolStripMenuItem_Click);
             // 
             // departamentoToolStripMenuItem
             // 
             this.departamentoToolStripMenuItem.Name = "departamentoToolStripMenuItem";
             this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.departamentoToolStripMenuItem.Text = "Departamento";
+            this.departamentoToolStripMenuItem.Click += new System.EventHandler(this.departamentoToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.userToolStripMenuItem.Text = "User";
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
             // Menu
             // 
