@@ -9,14 +9,14 @@ using ClasesMarcacion;
 
 namespace Marker
 {
-    class Program
+   static class Program
     {
-        static void Main(string[] args)
+        [STAThread]
+        static void Main()
         {
-             Application.EnableVisualStyles();
-             Application.SetCompatibleTextRenderingDefault(false);
-             Application.Run(new frmUsuario());
-       
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new frmCargo());
         }
     }
 }
