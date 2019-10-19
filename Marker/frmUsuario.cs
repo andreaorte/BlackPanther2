@@ -96,7 +96,7 @@ namespace Marker
         private void ActualizarListaUser()
         {
             lstUsuario.DataSource = null;
-            lstUsuario.DataSource = User.ObtenerUser();
+            lstUsuario.DataSource = Usuari.ObtenerUser();
         }
 
 
@@ -107,8 +107,8 @@ namespace Marker
             {
                 if (modo == "AGREGAR")
                 {
-                    User user = ObtenerUserFormulario();
-                    User.AgregarUser(user);
+                    Usuari user = ObtenerUserFormulario();
+                    Usuari.AgregarUser(user);
                 }
                 else if (modo == "EDITAR")
                 {
@@ -122,7 +122,7 @@ namespace Marker
                         // int indice = lstUsuario.SelectedIndex;
                         //  User.EditarUser(user, indice);
                         int index = lstUsuario.SelectedIndex;
-                        User.listaUser[index] = ObtenerUserFormulario();
+                        Usuari.listaUser[index] = ObtenerUserFormulario();
                         //ActualizarListaUser();
                     }
 
@@ -136,9 +136,9 @@ namespace Marker
             }
         }
 
-        private User ObtenerUserFormulario()
+        private Usuari ObtenerUserFormulario()
         {
-            User user = new User();
+            Usuari user = new Usuari();
             user.NombreApellido = txtuNombre.Text;
             user.CodigoHumano = txtuCodigoHumano.Text;
             user.FechaIngreso = dtpuFechaIngreso.Value.Date;
@@ -164,8 +164,8 @@ namespace Marker
             {
                 if (lstUsuario.SelectedItems.Count > 0)
                 {
-                    User user = (User)lstUsuario.SelectedItem;
-                    User.listaUser.Remove(user);
+                    Usuari user = (Usuari)lstUsuario.SelectedItem;
+                    Usuari.listaUser.Remove(user);
                     ActualizarListaUser();
                     LimpiarFormulario();
                 }
@@ -179,7 +179,7 @@ namespace Marker
 
         private void lstUsuario_Click(object sender, EventArgs e)
         {
-            User user = (User)lstUsuario.SelectedItem;
+            Usuari user = (Usuari)lstUsuario.SelectedItem;
 
             if (user != null)
             {
@@ -208,7 +208,7 @@ namespace Marker
 
         private void lstUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            User user = (User)lstUsuario.SelectedItem;
+            Usuari user = (Usuari)lstUsuario.SelectedItem;
 
             if (user != null)
             {

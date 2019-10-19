@@ -168,5 +168,106 @@ namespace Marker
             }
         }
 
+        private void frmCargo_Load_1(object sender, EventArgs e)
+        {
+            ActualizarListaCargos();
+
+            BloquearFormulario();
+        }
+
+        private void lstCargo_Click_1(object sender, EventArgs e)
+        {
+            Cargo c = (Cargo)lstCargo.SelectedItem;
+            if (c != null)
+            {
+                txtIdCargo.Text = c.idCargo;
+                txtNombreCargo.Text = c.descripcion;
+
+            }
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            modo = "AGREGAR";
+            LimpiarFormulario();
+            DesbloquearFormularios();
+            txtIdCargo.Focus();
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            var c = ObtenerDatosFormulario();
+
+
+            if (modo == "AGREGAR")
+            {
+                Cargo.AgregarCargo(c);
+            }
+            else if (modo == "EDITAR")
+            {
+
+                if (this.lstCargo.SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Favor seleccione una fila");
+                }
+
+                else
+                {
+                    int indice = lstCargo.SelectedIndex;
+                    Cargo.EditarCargo(c, indice);
+                    ActualizarListaCargos();
+                }
+
+
+            }
+
+            LimpiarFormulario();
+            ActualizarListaCargos();
+            BloquearFormulario();
+
+
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+            if (this.lstCargo.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Favor seleccione una fila");
+            }
+            else
+            {
+                modo = "EDITAR";
+                DesbloquearFormularios();
+                txtIdCargo.Focus();
+            }
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            if (this.lstCargo.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Favor seleccione una fila");
+            }
+            else
+            {
+                Cargo c = (Cargo)lstCargo.SelectedItem;
+                Cargo.EliminarCargo(c);
+                ActualizarListaCargos();
+                LimpiarFormulario();
+            }
+
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+            BloquearFormulario();
+        }
+
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+        }
     }
 }
+

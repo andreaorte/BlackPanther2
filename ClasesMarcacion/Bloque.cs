@@ -15,7 +15,7 @@ namespace ClasesMarcacion
     public class Bloque
     {
 
-        public User NombreUsuario  { get; set; }
+        public Usuari NombreUsuario  { get; set; }
         public string CodigoHumano  { get; set; }
         public TipoHora Tipo_Hora  { get; set; }
         public DateTime FechaInicio  { get; set; }

@@ -166,5 +166,103 @@ namespace Marker
 
             }
         }
+
+        private void frmDepartamento_Load_1(object sender, EventArgs e)
+        {
+            ActualizarListaDepartamentos();
+
+            BloquearFormulario();
+        }
+
+        private void lstDepartamento_Click_1(object sender, EventArgs e)
+        {
+            Departamento d = (Departamento)lstDepartamento.SelectedItem;
+            if (d != null)
+            {
+                txtIdDepartamento.Text = d.Id;
+                txtNombreDepartamento.Text = d.descripcion;
+
+            }
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            modo = "AGREGAR";
+            LimpiarFormulario();
+            DesbloquearFormularios();
+            txtIdDepartamento.Focus();
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            var d = ObtenerDatosFormulario();
+
+
+            if (modo == "AGREGAR")
+            {
+                Departamento.AgregarDepartamento(d);
+            }
+            else if (modo == "EDITAR")
+            {
+
+                if (this.lstDepartamento.SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Favor seleccione una fila");
+                }
+
+                else
+                {
+                    int indice = lstDepartamento.SelectedIndex;
+                    Departamento.EditarDepartamento(d, indice);
+                    ActualizarListaDepartamentos();
+                }
+
+
+            }
+            LimpiarFormulario();
+            ActualizarListaDepartamentos();
+            BloquearFormulario();
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+            if (this.lstDepartamento.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Favor seleccione una fila");
+            }
+            else
+            {
+                modo = "EDITAR";
+                DesbloquearFormularios();
+                txtIdDepartamento.Focus();
+            }
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+
+            if (this.lstDepartamento.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Favor seleccione una fila");
+            }
+            else
+            {
+                Departamento d = (Departamento)lstDepartamento.SelectedItem;
+                Departamento.EliminarDepartamento(d);
+                ActualizarListaDepartamentos();
+                LimpiarFormulario();
+            }
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+            BloquearFormulario();
+        }
+
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+        }
     }
 }

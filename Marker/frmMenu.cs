@@ -40,5 +40,15 @@ namespace Marker
             frmUsuario frmusu = new frmUsuario();
             frmusu.Show();
         }
+
+        private void administradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

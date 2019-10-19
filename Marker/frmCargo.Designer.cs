@@ -43,116 +43,110 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(214, 275);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(186, 232);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(100, 28);
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 40;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(106, 275);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditar.Location = new System.Drawing.Point(106, 232);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(100, 28);
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 39;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(-2, 275);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregar.Location = new System.Drawing.Point(24, 232);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(100, 28);
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 38;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
             // 
             // lstCargo
             // 
             this.lstCargo.FormattingEnabled = true;
-            this.lstCargo.ItemHeight = 16;
-            this.lstCargo.Location = new System.Drawing.Point(2, 20);
-            this.lstCargo.Margin = new System.Windows.Forms.Padding(4);
+            this.lstCargo.Location = new System.Drawing.Point(28, 25);
             this.lstCargo.Name = "lstCargo";
-            this.lstCargo.Size = new System.Drawing.Size(257, 228);
+            this.lstCargo.Size = new System.Drawing.Size(194, 186);
             this.lstCargo.TabIndex = 37;
-//            this.lstCargo.SelectedIndexChanged += new System.EventHandler(this.lstCargo_SelectedIndexChanged);
+            this.lstCargo.Click += new System.EventHandler(this.lstCargo_Click_1);
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(485, 150);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiar.Location = new System.Drawing.Point(413, 134);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(100, 28);
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 36;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(377, 150);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Location = new System.Drawing.Point(332, 134);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 35;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(269, 150);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardar.Location = new System.Drawing.Point(251, 134);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(100, 28);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 34;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
             // lblNombreCargo
             // 
             this.lblNombreCargo.AutoSize = true;
-            this.lblNombreCargo.Location = new System.Drawing.Point(286, 96);
-            this.lblNombreCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombreCargo.Location = new System.Drawing.Point(240, 87);
             this.lblNombreCargo.Name = "lblNombreCargo";
-            this.lblNombreCargo.Size = new System.Drawing.Size(104, 17);
+            this.lblNombreCargo.Size = new System.Drawing.Size(78, 13);
             this.lblNombreCargo.TabIndex = 33;
             this.lblNombreCargo.Text = "Nombre Cargo:";
             // 
             // lblIdCargo
             // 
             this.lblIdCargo.AutoSize = true;
-            this.lblIdCargo.Location = new System.Drawing.Point(286, 64);
-            this.lblIdCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIdCargo.Location = new System.Drawing.Point(240, 61);
             this.lblIdCargo.Name = "lblIdCargo";
-            this.lblIdCargo.Size = new System.Drawing.Size(23, 17);
+            this.lblIdCargo.Size = new System.Drawing.Size(19, 13);
             this.lblIdCargo.TabIndex = 32;
             this.lblIdCargo.Text = "Id:";
             // 
             // txtNombreCargo
             // 
-            this.txtNombreCargo.Location = new System.Drawing.Point(451, 92);
-            this.txtNombreCargo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombreCargo.Location = new System.Drawing.Point(364, 84);
             this.txtNombreCargo.Name = "txtNombreCargo";
-            this.txtNombreCargo.Size = new System.Drawing.Size(196, 22);
+            this.txtNombreCargo.Size = new System.Drawing.Size(148, 20);
             this.txtNombreCargo.TabIndex = 31;
             // 
             // txtIdCargo
             // 
-            this.txtIdCargo.Location = new System.Drawing.Point(451, 55);
-            this.txtIdCargo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdCargo.Location = new System.Drawing.Point(364, 54);
             this.txtIdCargo.Name = "txtIdCargo";
-            this.txtIdCargo.Size = new System.Drawing.Size(196, 22);
+            this.txtIdCargo.Size = new System.Drawing.Size(148, 20);
             this.txtIdCargo.TabIndex = 30;
             // 
             // frmCargo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 343);
+            this.ClientSize = new System.Drawing.Size(557, 337);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
@@ -164,8 +158,10 @@
             this.Controls.Add(this.lblIdCargo);
             this.Controls.Add(this.txtNombreCargo);
             this.Controls.Add(this.txtIdCargo);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCargo";
             this.Text = "frmCargo";
+            this.Load += new System.EventHandler(this.frmCargo_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

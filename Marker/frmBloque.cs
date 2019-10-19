@@ -68,7 +68,7 @@ namespace Marker
 
             bloque.FechaFin = dtpbFechaFin.Value.Date;
 
-            bloque.NombreUsuario = (User)cbobNombre.SelectedItem;
+            bloque.NombreUsuario = (Usuari)cbobNombre.SelectedItem;
 
 
 
@@ -89,7 +89,7 @@ namespace Marker
         {
 
             ActualizarListaBloque();
-            cbobNombre.DataSource = User.ObtenerUser();
+            cbobNombre.DataSource = Usuari.ObtenerUser();
             cbobNombre.SelectedItem = null;
             BloquearFormulario();
         }
