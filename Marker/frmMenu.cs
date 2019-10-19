@@ -50,5 +50,11 @@ namespace Marker
         {
             this.Close();
         }
+
+        private void marcaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMarcacion frmMarca = new frmMarcacion();
+            frmMarca.Show();
+        }
     }
 }

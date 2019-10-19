@@ -39,6 +39,7 @@
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,10 +58,11 @@
             // tablasToolStripMenuItem
             // 
             this.tablasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bloqueToolStripMenuItem,
-            this.cargoToolStripMenuItem,
             this.departamentoToolStripMenuItem,
-            this.userToolStripMenuItem});
+            this.cargoToolStripMenuItem,
+            this.userToolStripMenuItem,
+            this.bloqueToolStripMenuItem,
+            this.marcaciónToolStripMenuItem});
             this.tablasToolStripMenuItem.Name = "tablasToolStripMenuItem";
             this.tablasToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.tablasToolStripMenuItem.Text = "&Mantenimiento";
@@ -68,28 +70,28 @@
             // bloqueToolStripMenuItem
             // 
             this.bloqueToolStripMenuItem.Name = "bloqueToolStripMenuItem";
-            this.bloqueToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.bloqueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bloqueToolStripMenuItem.Text = "Bloque";
             this.bloqueToolStripMenuItem.Click += new System.EventHandler(this.bloqueToolStripMenuItem_Click);
             // 
             // cargoToolStripMenuItem
             // 
             this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
-            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cargoToolStripMenuItem.Text = "Cargo";
             this.cargoToolStripMenuItem.Click += new System.EventHandler(this.cargoToolStripMenuItem_Click);
             // 
             // departamentoToolStripMenuItem
             // 
             this.departamentoToolStripMenuItem.Name = "departamentoToolStripMenuItem";
-            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.departamentoToolStripMenuItem.Text = "Departamento";
             this.departamentoToolStripMenuItem.Click += new System.EventHandler(this.departamentoToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userToolStripMenuItem.Text = "Usuario";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
@@ -129,6 +131,13 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // marcaciónToolStripMenuItem
+            // 
+            this.marcaciónToolStripMenuItem.Name = "marcaciónToolStripMenuItem";
+            this.marcaciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.marcaciónToolStripMenuItem.Text = "Marcación";
+            this.marcaciónToolStripMenuItem.Click += new System.EventHandler(this.marcaciónToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,5 +166,6 @@
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarPasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcaciónToolStripMenuItem;
     }
 }
