@@ -35,33 +35,43 @@ namespace Marker
             modo = "AGREGAR";
             LimpiarFormulario();
             DesbloquearFormulario();
-            txtuNombre.Focus();
+            txtCodigoHumano.Focus();
         }
         private void LimpiarFormulario()
         {
-            txtuNombre.Text = "";
-            txtuCodigoHumano.Text = "";
-            cbouDepartamento.SelectedItem = null;
-            cbouCargo.SelectedItem = null;
+            txtCodigoHumano.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtNroDocumento.Text = "";
+            cboDepartamento.SelectedItem = null;
+            cboCargo.SelectedItem = null;
+            cboTipoUsuario.SelectedItem = null;
             dtpuFechaIngreso.Value = DateTime.Now;
 
         }
         private void frmUsuario_Load(object sender, EventArgs e)
         {
+
             ActualizarListaUser();
-            cbouDepartamento.DataSource = Departamento.ObtenerDepartamento();
-            cbouCargo.DataSource = Cargo.ObtenerCargo();
-            cbouDepartamento.SelectedItem = null;
-            cbouCargo.SelectedItem = null;
+
+            cboTipoUsuario.DataSource = Enum.GetValues(typeof(TipoUsuario));
+            cboDepartamento.DataSource = Departamento.ObtenerDepartamentos();
+            cboCargo.DataSource = Cargo.ObtenerCargos();
+            cboCargo.SelectedItem = null;
+            cboDepartamento.SelectedItem = null;
+            cboTipoUsuario.SelectedItem = null;
             BloquearFormulario();
         }
 
         private void BloquearFormulario()
         {
-            txtuNombre.Enabled = false;
-            txtuCodigoHumano.Enabled = false;
-            cbouDepartamento.Enabled = false;
-            cbouCargo.Enabled = false;
+            txtNombre.Enabled = false;
+            txtApellido.Enabled = false;
+            txtCodigoHumano.Enabled = false;
+            txtNroDocumento.Enabled = false;
+            cboCargo.Enabled = false;
+            cboDepartamento.Enabled = false;
+            cboTipoUsuario.Enabled = false;
             dtpuFechaIngreso.Enabled = false;
 
             btnGuardar.Enabled = false;
@@ -77,12 +87,15 @@ namespace Marker
 
         private void DesbloquearFormulario()
         {
-            txtuNombre.Enabled = true;
-            txtuCodigoHumano.Enabled = true;
-            cbouDepartamento.Enabled = true;
-            cbouCargo.Enabled = true;
+            txtNombre.Enabled = true;
+            txtApellido.Enabled = true;
+            txtCodigoHumano.Enabled = true;
+            txtNroDocumento.Enabled = true;
+            cboCargo.Enabled = true;
+            cboDepartamento.Enabled = true;
+            cboTipoUsuario.Enabled = true;
             dtpuFechaIngreso.Enabled = true;
-            
+
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
             btnLimpiar.Enabled = true;
@@ -96,7 +109,7 @@ namespace Marker
         private void ActualizarListaUser()
         {
             lstUsuario.DataSource = null;
-            lstUsuario.DataSource = Usuari.ObtenerUser();
+            lstUsuario.DataSource = Usuari.ObtenerUsuario();
         }
 
 
@@ -108,7 +121,7 @@ namespace Marker
                 if (modo == "AGREGAR")
                 {
                     Usuari user = ObtenerUserFormulario();
-                    Usuari.AgregarUser(user);
+                    Usuari.AgregarUsuario(user);
                 }
                 else if (modo == "EDITAR")
                 {
@@ -119,11 +132,10 @@ namespace Marker
 
                     else
                     {
-                        // int indice = lstUsuario.SelectedIndex;
-                        //  User.EditarUser(user, indice);
+                        
                         int index = lstUsuario.SelectedIndex;
-                        Usuari.listaUser[index] = ObtenerUserFormulario();
-                        //ActualizarListaUser();
+                        Usuari.listarUsuario[index] = ObtenerUserFormulario();
+                        
                     }
 
                 }
@@ -138,23 +150,25 @@ namespace Marker
 
         private Usuari ObtenerUserFormulario()
         {
-            Usuari user = new Usuari();
-            user.NombreApellido = txtuNombre.Text;
-            user.CodigoHumano = txtuCodigoHumano.Text;
-            user.FechaIngreso = dtpuFechaIngreso.Value.Date;
+            Usuari u = new Usuari();
+            u.CodigoHumano = txtCodigoHumano.Text;
+            u.Nombre = txtNombre.Text;
+            u.Apellido= txtApellido.Text;
+            u.NroDocumento = txtNroDocumento.Text;
+            u.FechaIngreso = dtpuFechaIngreso.Value.Date;
+           u.departamento = (Departamento)cboDepartamento.SelectedItem;
+            u.cargo = (Cargo)cboCargo.SelectedItem;
+            u.tipoUsuario = (TipoUsuario)cboTipoUsuario.SelectedItem;
 
-            user.Departamento = (Departamento)cbouDepartamento.SelectedItem;
-            user.Cargo = (Cargo)cbouCargo.SelectedItem;
 
-
-            return user;
+            return u;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
                 modo = "EDITAR";
                 DesbloquearFormulario();
-                txtuNombre.Focus();
+                txtCodigoHumano.Focus();
             
 
         }
@@ -165,7 +179,7 @@ namespace Marker
                 if (lstUsuario.SelectedItems.Count > 0)
                 {
                     Usuari user = (Usuari)lstUsuario.SelectedItem;
-                    Usuari.listaUser.Remove(user);
+                    Usuari.listarUsuario.Remove(user);
                     ActualizarListaUser();
                     LimpiarFormulario();
                 }
@@ -179,19 +193,19 @@ namespace Marker
 
         private void lstUsuario_Click(object sender, EventArgs e)
         {
-            Usuari user = (Usuari)lstUsuario.SelectedItem;
-
-            if (user != null)
+            Usuari u = (Usuari)lstUsuario.SelectedItem;
+            if (u != null)
             {
-                txtuNombre.Text = user.NombreApellido;
-                txtuCodigoHumano.Text = user.CodigoHumano;
-                cbouDepartamento.SelectedItem = user.Departamento;
-                cbouCargo.SelectedItem = user.Cargo;
-                dtpuFechaIngreso.Value = user.FechaIngreso;
+                txtCodigoHumano.Text = u.CodigoHumano;
+                txtNombre.Text = u.Nombre;
+                txtApellido.Text = u.Apellido;
+                txtNroDocumento.Text = u.NroDocumento;
+                cboCargo.SelectedItem = u.cargo;
+                cboDepartamento.SelectedItem = u.departamento;
+                cboTipoUsuario.SelectedItem = u.tipoUsuario;
+                dtpuFechaIngreso.Value = u.FechaIngreso;
 
             }
-
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -208,19 +222,94 @@ namespace Marker
 
         private void lstUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Usuari user = (Usuari)lstUsuario.SelectedItem;
+            Usuari u = (Usuari)lstUsuario.SelectedItem;
 
-            if (user != null)
+            if (u != null)
             {
-                txtuNombre.Text = user.NombreApellido;
-                txtuCodigoHumano.Text = user.CodigoHumano;
-                cbouDepartamento.SelectedItem = user.Departamento;
-                cbouCargo.SelectedItem = user.Cargo;
-                dtpuFechaIngreso.Value = user.FechaIngreso;
+                txtNombre.Text = u.Nombre;
+                txtApellido.Text = u.Apellido;
+                txtCodigoHumano.Text = u.CodigoHumano;
+                txtNroDocumento.Text = u.NroDocumento;
+                cboDepartamento.SelectedItem = u.departamento;
+                cboCargo.SelectedItem = u.cargo;
+                cboTipoUsuario.SelectedItem = u.tipoUsuario;
+                dtpuFechaIngreso.Value = u.FechaIngreso;
 
             }
 
 
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            modo = "AGREGAR";
+            LimpiarFormulario();
+            DesbloquearFormulario();
+            txtCodigoHumano.Focus();
+        }
+
+        private void lstUsuario_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+            if (this.lstUsuario.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Favor seleccione una fila");
+            }
+            else
+            {
+                modo = "EDITAR";
+                DesbloquearFormulario();
+                txtCodigoHumano.Focus();
+            }
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            if (this.lstUsuario.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Favor seleccione una fila");
+            }
+            else
+            {
+                Usuari u = (Usuari)lstUsuario.SelectedItem;
+                Usuari.EliminiarUsuario(u);
+                ActualizarListaUser();
+                LimpiarFormulario();
+            }
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            if (modo == "AGREGAR")
+            {
+                Usuari usuario = ObtenerUserFormulario();
+                Usuari.AgregarUsuario(usuario);
+            }
+            else if (modo == "EDITAR")
+            {
+                int index = lstUsuario.SelectedIndex;
+
+                Usuari.listarUsuario[index] = ObtenerUserFormulario();
+            }
+
+            ActualizarListaUser();
+            LimpiarFormulario();
+            BloquearFormulario();
+        }
+
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+            BloquearFormulario();
         }
     }
 }

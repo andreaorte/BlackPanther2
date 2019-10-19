@@ -6,49 +6,49 @@ using System.Threading.Tasks;
 
 namespace ClasesMarcacion
 {
+    public enum TipoUsuario
+    {
+        Empleado,
+        Administrador
+    }
     public class Usuari
     {
-        public string NombreApellido { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string NroDocumento { get; set; }
         public string CodigoHumano { get; set; }
-        public Departamento Departamento   { get; set; }
-
-        public Cargo Cargo  { get; set; }
+        public Departamento departamento   { get; set; }
+        public Cargo cargo  { get; set; }
         public DateTime FechaIngreso  { get; set; }
+        public TipoUsuario tipoUsuario { get; set; }
 
-        public static List<Usuari> listaUser  = new List<Usuari>();
+        public static List<Usuari> listarUsuario  = new List<Usuari>();
 
         public Usuari() { }
 
-        public Usuari(string nombreapellido, string codigohumano, DateTime fechaingreso)
+
+        public static void AgregarUsuario(Usuari u)
         {
-            this.NombreApellido = nombreapellido;
-            this.CodigoHumano = codigohumano;
-            this.FechaIngreso = fechaingreso;
+            listarUsuario.Add(u);
+        }
+        public static void EditarUsuario(Usuari u, int indice)
+        {
+            Usuari.listarUsuario[indice] = u;
 
         }
-
-        public static void AgregarUser(Usuari u)
+        public static void EliminiarUsuario(Usuari user)
         {
-            listaUser.Add(u);
-        }
-        public static void EditarUser(Usuari u, int indice)
-        {
-            Usuari.listaUser[indice] = u;
-
-        }
-        public static void EliminarCarne(Usuari user)
-        {
-            listaUser.Remove(user);
+            listarUsuario.Remove(user);
         }
 
-        public static List<Usuari> ObtenerUser()
+        public static List<Usuari> ObtenerUsuario()
         {
-            return listaUser;
+            return listarUsuario;
         }
 
         public override string ToString()
         {
-            return this.NombreApellido;
+            return this.Nombre + " " + Apellido;
         }
     }
 }
