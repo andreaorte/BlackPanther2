@@ -31,21 +31,18 @@
             this.lstBloque = new System.Windows.Forms.ListBox();
             this.lblINombre = new System.Windows.Forms.Label();
             this.cbobNombre = new System.Windows.Forms.ComboBox();
-            this.lblTipoHora = new System.Windows.Forms.Label();
-            this.rbubDiurna = new System.Windows.Forms.RadioButton();
-            this.rbubNocturna = new System.Windows.Forms.RadioButton();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.dtpbFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.dtpbFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraEntrada = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraSalida = new System.Windows.Forms.DateTimePicker();
             this.lblInicio = new System.Windows.Forms.Label();
             this.lblFin = new System.Windows.Forms.Label();
-            this.lblCodigoHumano = new System.Windows.Forms.Label();
-            this.txtbCodigoHumano = new System.Windows.Forms.TextBox();
+            this.dtpFechaEntrada = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaSalida = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lstBloque
@@ -71,39 +68,8 @@
             this.cbobNombre.FormattingEnabled = true;
             this.cbobNombre.Location = new System.Drawing.Point(386, 30);
             this.cbobNombre.Name = "cbobNombre";
-            this.cbobNombre.Size = new System.Drawing.Size(170, 21);
+            this.cbobNombre.Size = new System.Drawing.Size(293, 21);
             this.cbobNombre.TabIndex = 62;
-            // 
-            // lblTipoHora
-            // 
-            this.lblTipoHora.AutoSize = true;
-            this.lblTipoHora.Location = new System.Drawing.Point(294, 120);
-            this.lblTipoHora.Name = "lblTipoHora";
-            this.lblTipoHora.Size = new System.Drawing.Size(69, 13);
-            this.lblTipoHora.TabIndex = 63;
-            this.lblTipoHora.Text = "Tipo de Hora";
-            // 
-            // rbubDiurna
-            // 
-            this.rbubDiurna.AutoSize = true;
-            this.rbubDiurna.Location = new System.Drawing.Point(392, 120);
-            this.rbubDiurna.Name = "rbubDiurna";
-            this.rbubDiurna.Size = new System.Drawing.Size(56, 17);
-            this.rbubDiurna.TabIndex = 64;
-            this.rbubDiurna.TabStop = true;
-            this.rbubDiurna.Text = "Diurna";
-            this.rbubDiurna.UseVisualStyleBackColor = true;
-            // 
-            // rbubNocturna
-            // 
-            this.rbubNocturna.AutoSize = true;
-            this.rbubNocturna.Location = new System.Drawing.Point(464, 120);
-            this.rbubNocturna.Name = "rbubNocturna";
-            this.rbubNocturna.Size = new System.Drawing.Size(69, 17);
-            this.rbubNocturna.TabIndex = 65;
-            this.rbubNocturna.TabStop = true;
-            this.rbubNocturna.Text = "Nocturna";
-            this.rbubNocturna.UseVisualStyleBackColor = true;
             // 
             // btnAgregar
             // 
@@ -137,7 +103,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(312, 242);
+            this.btnGuardar.Location = new System.Drawing.Point(312, 210);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 69;
@@ -147,7 +113,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(393, 242);
+            this.btnCancelar.Location = new System.Drawing.Point(393, 210);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 70;
@@ -157,7 +123,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(481, 242);
+            this.btnLimpiar.Location = new System.Drawing.Point(481, 210);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 71;
@@ -165,77 +131,72 @@
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // dtpbFechaInicio
+            // dtpHoraEntrada
             // 
-            this.dtpbFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpbFechaInicio.Location = new System.Drawing.Point(386, 158);
-            this.dtpbFechaInicio.Name = "dtpbFechaInicio";
-            this.dtpbFechaInicio.Size = new System.Drawing.Size(170, 20);
-            this.dtpbFechaInicio.TabIndex = 72;
-            this.dtpbFechaInicio.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dtpHoraEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraEntrada.Location = new System.Drawing.Point(600, 122);
+            this.dtpHoraEntrada.Name = "dtpHoraEntrada";
+            this.dtpHoraEntrada.Size = new System.Drawing.Size(170, 20);
+            this.dtpHoraEntrada.TabIndex = 72;
+            this.dtpHoraEntrada.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // dtpbFechaFin
+            // dtpHoraSalida
             // 
-            this.dtpbFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpbFechaFin.Location = new System.Drawing.Point(386, 191);
-            this.dtpbFechaFin.Name = "dtpbFechaFin";
-            this.dtpbFechaFin.Size = new System.Drawing.Size(170, 20);
-            this.dtpbFechaFin.TabIndex = 73;
+            this.dtpHoraSalida.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraSalida.Location = new System.Drawing.Point(600, 150);
+            this.dtpHoraSalida.Name = "dtpHoraSalida";
+            this.dtpHoraSalida.Size = new System.Drawing.Size(170, 20);
+            this.dtpHoraSalida.TabIndex = 73;
             // 
             // lblInicio
             // 
             this.lblInicio.AutoSize = true;
-            this.lblInicio.Location = new System.Drawing.Point(301, 165);
+            this.lblInicio.Location = new System.Drawing.Point(285, 129);
             this.lblInicio.Name = "lblInicio";
-            this.lblInicio.Size = new System.Drawing.Size(35, 13);
+            this.lblInicio.Size = new System.Drawing.Size(88, 13);
             this.lblInicio.TabIndex = 74;
-            this.lblInicio.Text = "Inicio:";
+            this.lblInicio.Text = "Hora de Entrada:";
             // 
             // lblFin
             // 
             this.lblFin.AutoSize = true;
-            this.lblFin.Location = new System.Drawing.Point(301, 198);
+            this.lblFin.Location = new System.Drawing.Point(285, 156);
             this.lblFin.Name = "lblFin";
-            this.lblFin.Size = new System.Drawing.Size(24, 13);
+            this.lblFin.Size = new System.Drawing.Size(80, 13);
             this.lblFin.TabIndex = 75;
-            this.lblFin.Text = "Fin:";
+            this.lblFin.Text = "Hora de Salida:";
             // 
-            // lblCodigoHumano
+            // dtpFechaEntrada
             // 
-            this.lblCodigoHumano.AutoSize = true;
-            this.lblCodigoHumano.Location = new System.Drawing.Point(294, 79);
-            this.lblCodigoHumano.Name = "lblCodigoHumano";
-            this.lblCodigoHumano.Size = new System.Drawing.Size(83, 13);
-            this.lblCodigoHumano.TabIndex = 76;
-            this.lblCodigoHumano.Text = "Codigo Humano";
+            this.dtpFechaEntrada.Location = new System.Drawing.Point(386, 122);
+            this.dtpFechaEntrada.Name = "dtpFechaEntrada";
+            this.dtpFechaEntrada.Size = new System.Drawing.Size(191, 20);
+            this.dtpFechaEntrada.TabIndex = 76;
             // 
-            // txtbCodigoHumano
+            // dtpFechaSalida
             // 
-            this.txtbCodigoHumano.Location = new System.Drawing.Point(386, 76);
-            this.txtbCodigoHumano.Name = "txtbCodigoHumano";
-            this.txtbCodigoHumano.Size = new System.Drawing.Size(170, 20);
-            this.txtbCodigoHumano.TabIndex = 77;
+            this.dtpFechaSalida.Location = new System.Drawing.Point(386, 149);
+            this.dtpFechaSalida.Name = "dtpFechaSalida";
+            this.dtpFechaSalida.Size = new System.Drawing.Size(191, 20);
+            this.dtpFechaSalida.TabIndex = 77;
             // 
             // frmBloque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 486);
-            this.Controls.Add(this.txtbCodigoHumano);
-            this.Controls.Add(this.lblCodigoHumano);
+            this.ClientSize = new System.Drawing.Size(798, 500);
+            this.Controls.Add(this.dtpFechaSalida);
+            this.Controls.Add(this.dtpFechaEntrada);
             this.Controls.Add(this.lblFin);
             this.Controls.Add(this.lblInicio);
-            this.Controls.Add(this.dtpbFechaFin);
-            this.Controls.Add(this.dtpbFechaInicio);
+            this.Controls.Add(this.dtpHoraSalida);
+            this.Controls.Add(this.dtpHoraEntrada);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.rbubNocturna);
-            this.Controls.Add(this.rbubDiurna);
-            this.Controls.Add(this.lblTipoHora);
             this.Controls.Add(this.cbobNombre);
             this.Controls.Add(this.lblINombre);
             this.Controls.Add(this.lstBloque);
@@ -252,20 +213,17 @@
         private System.Windows.Forms.ListBox lstBloque;
         private System.Windows.Forms.Label lblINombre;
         private System.Windows.Forms.ComboBox cbobNombre;
-        private System.Windows.Forms.Label lblTipoHora;
-        private System.Windows.Forms.RadioButton rbubDiurna;
-        private System.Windows.Forms.RadioButton rbubNocturna;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.DateTimePicker dtpbFechaInicio;
-        private System.Windows.Forms.DateTimePicker dtpbFechaFin;
+        private System.Windows.Forms.DateTimePicker dtpHoraEntrada;
+        private System.Windows.Forms.DateTimePicker dtpHoraSalida;
         private System.Windows.Forms.Label lblInicio;
         private System.Windows.Forms.Label lblFin;
-        private System.Windows.Forms.Label lblCodigoHumano;
-        private System.Windows.Forms.TextBox txtbCodigoHumano;
+        private System.Windows.Forms.DateTimePicker dtpFechaEntrada;
+        private System.Windows.Forms.DateTimePicker dtpFechaSalida;
     }
 }

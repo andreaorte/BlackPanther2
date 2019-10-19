@@ -18,8 +18,10 @@ namespace ClasesMarcacion
         public Usuari NombreUsuario  { get; set; }
         public string CodigoHumano  { get; set; }
         public TipoHora Tipo_Hora  { get; set; }
-        public DateTime FechaInicio  { get; set; }
-        public DateTime FechaFin { get; set; }
+        public DateTime HoraEntrada  { get; set; }
+        public DateTime HoraSalida { get; set; }
+        public DateTime FechaEntrada { get; set; }
+        public DateTime FechaSalida { get; set; }
 
 
         public static List<Bloque> listaBloque = new List<Bloque>();
@@ -31,11 +33,13 @@ namespace ClasesMarcacion
 
         public Bloque() { }
 
-        public Bloque(string codigoHumano, DateTime fechainicio, DateTime fechafin)
+        public Bloque(string codigoHumano, DateTime horaentrada, DateTime horasalida, DateTime fechaEntrada, DateTime fechaSalida)
         {
             this.CodigoHumano = codigoHumano;
-            this.FechaInicio = fechainicio;
-            this.FechaFin = fechafin;
+            this.HoraEntrada = horaentrada;
+            this.HoraSalida = horasalida;
+            this.FechaEntrada = fechaEntrada;
+            this.FechaSalida = fechaSalida;
 
         }
 
@@ -59,6 +63,10 @@ namespace ClasesMarcacion
 
 
 
+        public override string ToString()
+        {
+            return this.NombreUsuario.ToString();
+        }
 
 
 

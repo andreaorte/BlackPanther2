@@ -36,6 +36,8 @@ namespace ClasesMarcacion
             Usuari.listarUsuario[indice] = u;
 
         }
+
+       
         public static void EliminiarUsuario(Usuari user)
         {
             listarUsuario.Remove(user);

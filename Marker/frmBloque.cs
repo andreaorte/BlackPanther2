@@ -55,18 +55,10 @@ namespace Marker
         private Bloque ObtenerBloqueFormulario()
         {
             Bloque bloque = new Bloque();
-            bloque.CodigoHumano = txtbCodigoHumano.Text;
-            bloque.FechaInicio = dtpbFechaInicio.Value.Date;
-            if (rbubDiurna.Checked)
-            {
-                bloque.Tipo_Hora = TipoHora.Diurna;
-            }
-            else if (rbubNocturna.Checked)
-            {
-                bloque.Tipo_Hora = TipoHora.Nocturna;
-            }
-
-            bloque.FechaFin = dtpbFechaFin.Value.Date;
+            bloque.HoraEntrada =  dtpHoraEntrada.Value;
+            bloque.HoraSalida = dtpHoraSalida.Value;
+            bloque.FechaEntrada = dtpFechaEntrada.Value.Date;
+            bloque.FechaSalida = dtpFechaEntrada.Value.Date;
 
             bloque.NombreUsuario = (Usuari)cbobNombre.SelectedItem;
 
@@ -78,11 +70,10 @@ namespace Marker
         private void LimpiarFormulario()
         {
             cbobNombre.SelectedItem = null;
-            txtbCodigoHumano.Text = "";
-            rbubDiurna.Checked = false;
-            rbubNocturna.Checked = false;
-            dtpbFechaInicio.Value = DateTime.Now;
-            dtpbFechaFin.Value = DateTime.Now;
+            dtpHoraEntrada.Value = DateTime.Now;
+            dtpHoraSalida.Value = DateTime.Now;
+            dtpFechaEntrada.Value = DateTime.Now;
+            dtpFechaSalida.Value = DateTime.Now;
 
         }
         private void frmBloque_Load(object sender, EventArgs e)
@@ -99,11 +90,8 @@ namespace Marker
         private void BloquearFormulario()
         {
             cbobNombre.Enabled = false;
-            txtbCodigoHumano.Enabled = false;
-            rbubDiurna.Enabled = false;
-            rbubNocturna.Enabled = false;
-            dtpbFechaInicio.Enabled = false;
-            dtpbFechaFin.Enabled = false;
+            dtpHoraEntrada.Enabled = false;
+            dtpHoraSalida.Enabled = false;
             btnGuardar.Enabled = false;
             btnCancelar.Enabled = false;
             btnLimpiar.Enabled = false;
@@ -115,11 +103,8 @@ namespace Marker
         private void DesbloquearFormulario()
         {
             cbobNombre.Enabled = true;
-            txtbCodigoHumano.Enabled = true;
-            rbubDiurna.Enabled = true;
-            rbubNocturna.Enabled = true;
-            dtpbFechaInicio.Enabled = true;
-            dtpbFechaFin.Enabled = true;
+            dtpHoraEntrada.Enabled = true;
+            dtpHoraSalida.Enabled = true;
             
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
@@ -180,18 +165,7 @@ namespace Marker
             if (bloque != null)
             {
                 cbobNombre.SelectedItem = bloque.NombreUsuario;
-                txtbCodigoHumano.Text = bloque.CodigoHumano;
-
-
-                if (bloque.Tipo_Hora == TipoHora.Diurna)
-                {
-                    rbubDiurna.Checked = true;
-                }
-                else if (bloque.Tipo_Hora == TipoHora.Nocturna)
-                {
-                    rbubNocturna.Checked = true;
-                }
-
+                
 
 
 
@@ -256,20 +230,10 @@ namespace Marker
             if (bloque != null)
             {
                 cbobNombre.SelectedItem = bloque.NombreUsuario;
-                txtbCodigoHumano.Text = bloque.CodigoHumano;
-
-
-                if (bloque.Tipo_Hora == TipoHora.Diurna)
-                {
-                    rbubDiurna.Checked = true;
-                }
-                else if (bloque.Tipo_Hora == TipoHora.Nocturna)
-                {
-                    rbubNocturna.Checked = true;
-                }
-
-                dtpbFechaInicio.Value = bloque.FechaInicio;
-                dtpbFechaFin.Value = bloque.FechaFin;
+                dtpHoraEntrada.Value = bloque.HoraEntrada;
+                dtpHoraSalida.Value = bloque.HoraSalida;
+                dtpFechaEntrada.Value = bloque.FechaEntrada;
+                dtpFechaSalida.Value = bloque.FechaSalida;
 
 
 
@@ -277,5 +241,14 @@ namespace Marker
 
 
         }
-    }
-}
+
+        private void txtbCodigoHumano_TextChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        
+     }
+ }
+
