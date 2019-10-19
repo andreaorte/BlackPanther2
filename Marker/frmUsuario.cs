@@ -187,7 +187,7 @@ namespace Marker
                 txtuCodigoHumano.Text = user.CodigoHumano;
                 cbouDepartamento.SelectedItem = user.Departamento;
                 cbouCargo.SelectedItem = user.Cargo;
-                user.FechaIngreso = dtpuFechaIngreso.Value.Date;
+                dtpuFechaIngreso.Value = user.FechaIngreso;
 
             }
 
@@ -216,6 +216,7 @@ namespace Marker
                 txtuCodigoHumano.Text = user.CodigoHumano;
                 cbouDepartamento.SelectedItem = user.Departamento;
                 cbouCargo.SelectedItem = user.Cargo;
+                dtpuFechaIngreso.Value = user.FechaIngreso;
 
             }
 

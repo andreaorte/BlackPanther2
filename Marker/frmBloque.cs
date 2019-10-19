@@ -268,7 +268,8 @@ namespace Marker
                     rbubNocturna.Checked = true;
                 }
 
-
+                dtpbFechaInicio.Value = bloque.FechaInicio;
+                dtpbFechaFin.Value = bloque.FechaFin;
 
 
 
