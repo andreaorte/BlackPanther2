@@ -187,6 +187,7 @@ namespace Marker
                 txtuCodigoHumano.Text = user.CodigoHumano;
                 cbouDepartamento.SelectedItem = user.Departamento;
                 cbouCargo.SelectedItem = user.Cargo;
+                user.FechaIngreso = dtpuFechaIngreso.Value.Date;
 
             }
 
@@ -203,6 +204,22 @@ namespace Marker
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
+        }
+
+        private void lstUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            User user = (User)lstUsuario.SelectedItem;
+
+            if (user != null)
+            {
+                txtuNombre.Text = user.NombreApellido;
+                txtuCodigoHumano.Text = user.CodigoHumano;
+                cbouDepartamento.SelectedItem = user.Departamento;
+                cbouCargo.SelectedItem = user.Cargo;
+
+            }
+
+
         }
     }
 }

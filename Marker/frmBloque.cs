@@ -248,5 +248,33 @@ namespace Marker
             DesbloquearFormulario();
             cbobNombre.Focus();
         }
+
+        private void lstBloque_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Bloque bloque = (Bloque)lstBloque.SelectedItem;
+
+            if (bloque != null)
+            {
+                cbobNombre.SelectedItem = bloque.NombreUsuario;
+                txtbCodigoHumano.Text = bloque.CodigoHumano;
+
+
+                if (bloque.Tipo_Hora == TipoHora.Diurna)
+                {
+                    rbubDiurna.Checked = true;
+                }
+                else if (bloque.Tipo_Hora == TipoHora.Nocturna)
+                {
+                    rbubNocturna.Checked = true;
+                }
+
+
+
+
+
+            }
+
+
+        }
     }
 }

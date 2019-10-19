@@ -54,6 +54,7 @@
             this.lstUsuario.Name = "lstUsuario";
             this.lstUsuario.Size = new System.Drawing.Size(242, 316);
             this.lstUsuario.TabIndex = 38;
+            this.lstUsuario.SelectedIndexChanged += new System.EventHandler(this.lstUsuario_SelectedIndexChanged);
             // 
             // btnGuardar
             // 
