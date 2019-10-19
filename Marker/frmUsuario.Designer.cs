@@ -59,7 +59,7 @@
             this.dtpuFechaIngreso.Location = new System.Drawing.Point(435, 278);
             this.dtpuFechaIngreso.Name = "dtpuFechaIngreso";
             this.dtpuFechaIngreso.Size = new System.Drawing.Size(170, 20);
-            this.dtpuFechaIngreso.TabIndex = 89;
+            this.dtpuFechaIngreso.TabIndex = 7;
             // 
             // lblFechaIngreso
             // 
@@ -85,7 +85,7 @@
             this.cboTipoUsuario.Location = new System.Drawing.Point(457, 239);
             this.cboTipoUsuario.Name = "cboTipoUsuario";
             this.cboTipoUsuario.Size = new System.Drawing.Size(108, 21);
-            this.cboTipoUsuario.TabIndex = 86;
+            this.cboTipoUsuario.TabIndex = 6;
             // 
             // lblCargo
             // 
@@ -102,7 +102,7 @@
             this.cboCargo.Location = new System.Drawing.Point(457, 203);
             this.cboCargo.Name = "cboCargo";
             this.cboCargo.Size = new System.Drawing.Size(108, 21);
-            this.cboCargo.TabIndex = 84;
+            this.cboCargo.TabIndex = 5;
             // 
             // lblDepartamnto
             // 
@@ -119,7 +119,7 @@
             this.cboDepartamento.Location = new System.Drawing.Point(457, 170);
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(108, 21);
-            this.cboDepartamento.TabIndex = 82;
+            this.cboDepartamento.TabIndex = 4;
             // 
             // lblApellido
             // 
@@ -144,21 +144,21 @@
             this.txtApellido.Location = new System.Drawing.Point(457, 141);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(148, 20);
-            this.txtApellido.TabIndex = 79;
+            this.txtApellido.TabIndex = 3;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(457, 115);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(148, 20);
-            this.txtNombre.TabIndex = 78;
+            this.txtNombre.TabIndex = 2;
             // 
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(219, 385);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 77;
+            this.btnEliminar.TabIndex = 13;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
@@ -168,7 +168,7 @@
             this.btnEditar.Location = new System.Drawing.Point(138, 385);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 76;
+            this.btnEditar.TabIndex = 12;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
@@ -178,7 +178,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(57, 385);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 75;
+            this.btnAgregar.TabIndex = 11;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
@@ -189,7 +189,7 @@
             this.lstUsuario.Location = new System.Drawing.Point(57, 51);
             this.lstUsuario.Name = "lstUsuario";
             this.lstUsuario.Size = new System.Drawing.Size(210, 251);
-            this.lstUsuario.TabIndex = 74;
+            this.lstUsuario.TabIndex = 14;
             this.lstUsuario.Click += new System.EventHandler(this.lstUsuario_Click);
             // 
             // btnLimpiar
@@ -197,7 +197,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(599, 347);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 73;
+            this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
@@ -207,7 +207,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(518, 347);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 72;
+            this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
@@ -217,7 +217,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(437, 347);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 71;
+            this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
@@ -245,14 +245,14 @@
             this.txtNroDocumento.Location = new System.Drawing.Point(457, 85);
             this.txtNroDocumento.Name = "txtNroDocumento";
             this.txtNroDocumento.Size = new System.Drawing.Size(148, 20);
-            this.txtNroDocumento.TabIndex = 68;
+            this.txtNroDocumento.TabIndex = 1;
             // 
             // txtCodigoHumano
             // 
             this.txtCodigoHumano.Location = new System.Drawing.Point(457, 55);
             this.txtCodigoHumano.Name = "txtCodigoHumano";
             this.txtCodigoHumano.Size = new System.Drawing.Size(148, 20);
-            this.txtCodigoHumano.TabIndex = 67;
+            this.txtCodigoHumano.TabIndex = 0;
             // 
             // frmUsuario
             // 

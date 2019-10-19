@@ -193,6 +193,7 @@
             this.txtMarcacionSalida.Name = "txtMarcacionSalida";
             this.txtMarcacionSalida.Size = new System.Drawing.Size(135, 20);
             this.txtMarcacionSalida.TabIndex = 16;
+            this.txtMarcacionSalida.TextChanged += new System.EventHandler(this.txtMarcacionSalida_TextChanged);
             // 
             // frmMarcacion
             // 

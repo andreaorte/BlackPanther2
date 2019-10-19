@@ -284,9 +284,12 @@ namespace Marker
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
+            if (cboTipoUsuario.SelectedItem != null)
+            {
+            
             if (modo == "AGREGAR")
             {
-                Usuari usuario = ObtenerUserFormulario();
+                Usuari usuario = ObtenerUserFormulario(); 
                 Usuari.AgregarUsuario(usuario);
             }
             else if (modo == "EDITAR")
@@ -295,10 +298,18 @@ namespace Marker
 
                 Usuari.listarUsuario[index] = ObtenerUserFormulario();
             }
+                ActualizarListaUser();
+                LimpiarFormulario();
+                BloquearFormulario();
+            }
+          
+           
+               else 
+            {
+                MessageBox.Show("Debe de seleccionar el tipo de usuario");
+                cboTipoUsuario.Focus();
+            }
 
-            ActualizarListaUser();
-            LimpiarFormulario();
-            BloquearFormulario();
         }
 
         private void btnLimpiar_Click_1(object sender, EventArgs e)

@@ -11,7 +11,9 @@ using ClasesMarcacion;
 namespace Marker
 {
     public partial class frmMarcacion : Form
+        
     {
+        string modo;
         public frmMarcacion()
         {
             InitializeComponent();
@@ -19,27 +21,49 @@ namespace Marker
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime hora;
+            if (this.cboEmpleado.SelectedItem == null)
+            {
+                MessageBox.Show("Favor seleccione un Empleado");
+            }
+            else if (txtMarcacionEntrada.Text=="")  
+            {
+                modo = "entrada";
+                var m = ObtenerFormularioMarcacion();
+                //DateTime hora;
+                //hora = DateTime.Now;
+                //txtMarcacionEntrada.Text = hora.ToShortTimeString();
+                Marcacion.AgregarMarcacion(m);
+                MessageBox.Show("Entrada Marcada Exitosamente");
+                DesbloquearSalida();
+                ActualizarListaMarcacion();
+                BloquearEntrada();
+                DesbloquearSalida();
+            }
             
+           
             
-            hora = DateTime.Now;
-            txtMarcacionEntrada.Text = hora.ToShortTimeString();
-            Marcacion m = ObtenerFormularioMarcacion();
-            Marcacion.AgregarMarcacion(m);
-            ActualizarListaMarcacion();          
-            MessageBox.Show("Entrada MarcadaExitosamente");
-            DesbloquearFormulario();
-            BloquearFormulario();
-
         }
 
-        private void DesbloquearFormulario()
+        private void DesbloquearSalida()
         {
             btnMarcarSalida.Enabled = true;
         }
 
         private Marcacion ObtenerFormularioMarcacion()
         {
+            
+            if (modo == "entrada")
+            {
+                DateTime hora;
+                hora = DateTime.Now;
+                txtMarcacionEntrada.Text = hora.ToShortTimeString();
+            }
+            else if (modo=="salida")
+            {
+                DateTime hora;
+                hora = DateTime.Now;
+                txtMarcacionSalida.Text = hora.ToShortTimeString();
+            }
             Marcacion m = new Marcacion();
             m.empleado = (Usuari)cboEmpleado.SelectedItem;
             m.MarcacionEntrada = txtMarcacionEntrada.Text;
@@ -48,8 +72,8 @@ namespace Marker
             return m;
         }
 
-        private void BloquearFormulario()
-        {
+        private void BloquearEntrada()
+        { 
             btnMarcarEntrada.Enabled = false;
         }
 
@@ -67,7 +91,6 @@ namespace Marker
         private void frmMarcacion_Load(object sender, EventArgs e)
         {
            ActualizarListaMarcacion();
-            BloquearFormulario2();
             cboEmpleado.DataSource = Usuari.ObtenerUsuario();
             cboEmpleado.SelectedItem = null;
         }
@@ -89,25 +112,30 @@ namespace Marker
             Marcacion m = (Marcacion)lstMarcacion.SelectedItem;
             if (m != null)
             {
-                
-                txtMarcacionEntrada.Text = m.MarcacionEntrada;
                 cboEmpleado.SelectedItem = m.empleado;
+                txtMarcacionEntrada.Text = m.MarcacionEntrada;
                 txtMarcacionSalida.Text = m.MarcacionSalida;
-                btnMarcarEntrada.Enabled = false;
+                if ( txtMarcacionEntrada.Text != "" && txtMarcacionSalida.Text != "" )
+                {
+                    BloquearEntrada();
+                    BloquearSalida();
+                }
+                else if ( txtMarcacionSalida.Text =="" && txtMarcacionEntrada.Text != "")
+                {
+                    DesbloquearSalida();
+                    BloquearEntrada();
+                }
+                
              
             }
-            //if (txtMarcacionSalida.Text != "")
-            //{
-            //    BloquearFormulario2();
-            //}
+           
 
            
         }
 
         private void btnMarcarSalida_Click(object sender, EventArgs e)
         {
-            DateTime hora;
-            hora = DateTime.Now;
+            modo = "salida";
             if (this.lstMarcacion.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Favor seleccione una fila");
@@ -116,17 +144,27 @@ namespace Marker
             {
                 if (txtMarcacionSalida.Text != "")
                 {
-                    MessageBox.Show("Usted ya marco su salida");
+                    //MessageBox.Show("Usted ya marco su salida");
+                    btnMarcarSalida.Enabled = false;
 
                 }
-                else
-                { 
-                txtMarcacionSalida.Text = hora.ToShortTimeString();
-                int index = lstMarcacion.SelectedIndex;
-                Marcacion.listaMarcacion[index] = ObtenerFormularioMarcacion();
-                BloquearFormulario2();
-                ActualizarListaMarcacion();
-                MessageBox.Show("Salida Marcada Exitosamente");
+                else if (txtMarcacionSalida.Text == "")
+                
+                {
+
+                    //int indice = lstDepartamento.SelectedIndex;
+                    //Departamento.EditarDepartamento(d, indice);
+                    //ActualizarListaDepartamentos();
+
+                    int index = lstMarcacion.SelectedIndex;
+                    //DateTime hora;
+                    //hora = DateTime.Now;
+                    //txtMarcacionSalida.Text = hora.ToShortTimeString();
+                    Marcacion.listaMarcacion[index] = ObtenerFormularioMarcacion();
+                    ActualizarListaMarcacion();
+                    MessageBox.Show("Salida Marcada Exitosamente");
+                    BloquearSalida();
+
                 }
             }
 
@@ -137,7 +175,7 @@ namespace Marker
 
         
 
-        private void BloquearFormulario2()
+        private void BloquearSalida()
         {
             btnMarcarSalida.Enabled = false;
         }
@@ -151,6 +189,7 @@ namespace Marker
         private void cboEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
             LimpiarFormulario();
+            
         }
 
         private void LimpiarFormulario()
@@ -158,6 +197,11 @@ namespace Marker
             txtMarcacionEntrada.Text = "";
             txtMarcacionSalida.Text = "";
             btnMarcarEntrada.Enabled = true;
+        }
+
+        private void txtMarcacionSalida_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }
