@@ -56,5 +56,15 @@ namespace Marker
             frmMarcacion frmMarca = new frmMarcacion();
             frmMarca.Show();
         }
+
+        private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
