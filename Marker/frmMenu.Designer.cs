@@ -34,13 +34,13 @@
             this.cargoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.marcaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horasTrabajadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,8 +63,7 @@
             this.departamentoToolStripMenuItem,
             this.cargoToolStripMenuItem,
             this.userToolStripMenuItem,
-            this.bloqueToolStripMenuItem,
-            this.marcaciónToolStripMenuItem});
+            this.bloqueToolStripMenuItem});
             this.tablasToolStripMenuItem.Name = "tablasToolStripMenuItem";
             this.tablasToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.tablasToolStripMenuItem.Text = "&Mantenimiento";
@@ -72,37 +71,30 @@
             // departamentoToolStripMenuItem
             // 
             this.departamentoToolStripMenuItem.Name = "departamentoToolStripMenuItem";
-            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.departamentoToolStripMenuItem.Text = "Departamento";
             this.departamentoToolStripMenuItem.Click += new System.EventHandler(this.departamentoToolStripMenuItem_Click);
             // 
             // cargoToolStripMenuItem
             // 
             this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
-            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cargoToolStripMenuItem.Text = "Cargo";
             this.cargoToolStripMenuItem.Click += new System.EventHandler(this.cargoToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userToolStripMenuItem.Text = "Usuario";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
             // bloqueToolStripMenuItem
             // 
             this.bloqueToolStripMenuItem.Name = "bloqueToolStripMenuItem";
-            this.bloqueToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.bloqueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bloqueToolStripMenuItem.Text = "Bloque";
             this.bloqueToolStripMenuItem.Click += new System.EventHandler(this.bloqueToolStripMenuItem_Click);
-            // 
-            // marcaciónToolStripMenuItem
-            // 
-            this.marcaciónToolStripMenuItem.Name = "marcaciónToolStripMenuItem";
-            this.marcaciónToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.marcaciónToolStripMenuItem.Text = "Marcación";
-            this.marcaciónToolStripMenuItem.Click += new System.EventHandler(this.marcaciónToolStripMenuItem_Click);
             // 
             // reporteToolStripMenuItem
             // 
@@ -115,12 +107,13 @@
             // horasTrabajadasToolStripMenuItem
             // 
             this.horasTrabajadasToolStripMenuItem.Name = "horasTrabajadasToolStripMenuItem";
-            this.horasTrabajadasToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.horasTrabajadasToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.horasTrabajadasToolStripMenuItem.Text = "Horas Trabajadas";
             // 
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marcarToolStripMenuItem,
             this.cambiarPasswordToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
@@ -147,6 +140,13 @@
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
+            // marcarToolStripMenuItem
+            // 
+            this.marcarToolStripMenuItem.Name = "marcarToolStripMenuItem";
+            this.marcarToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.marcarToolStripMenuItem.Text = "Marcar";
+            this.marcarToolStripMenuItem.Click += new System.EventHandler(this.marcarToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +155,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmMenu";
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -175,7 +176,7 @@
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarPasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem marcaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcarToolStripMenuItem;
     }
 }

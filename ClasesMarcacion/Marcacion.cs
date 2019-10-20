@@ -6,14 +6,24 @@ using System.Threading.Tasks;
 
 namespace ClasesMarcacion
 {
+    
+
     public class Marcacion
+
     {
+
+        
+       
+
+
         public Usuari empleado { get; set; }
         public Usuari cargo { get; set; }
         public Usuari departamento { get; set; }
         public string HorasTrabajadas { get; set; }
         public string MarcacionEntrada { get; set; }
         public string MarcacionSalida { get; set; }
+        
+        //public DateTime Hora { get; set; }
 
         public static List<Marcacion> listaMarcacion = new List<Marcacion>();
 

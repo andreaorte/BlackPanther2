@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.cboEmpleado = new System.Windows.Forms.ComboBox();
             this.lblMarcacionEntrada = new System.Windows.Forms.Label();
@@ -39,12 +40,12 @@
             this.lstMarcacion = new System.Windows.Forms.ListBox();
             this.lblHorasTrabajadas = new System.Windows.Forms.Label();
             this.txtHorasTrabajadas = new System.Windows.Forms.TextBox();
-            this.btnHoraActual = new System.Windows.Forms.Button();
-            this.lblHoraActual = new System.Windows.Forms.Label();
             this.txtDepartamento = new System.Windows.Forms.TextBox();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.txtMarcacionEntrada = new System.Windows.Forms.TextBox();
             this.txtMarcacionSalida = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblHoraActual = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblEmpleado
@@ -58,6 +59,7 @@
             // 
             // cboEmpleado
             // 
+            this.cboEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEmpleado.FormattingEnabled = true;
             this.cboEmpleado.Location = new System.Drawing.Point(138, 17);
             this.cboEmpleado.Name = "cboEmpleado";
@@ -147,24 +149,7 @@
             this.txtHorasTrabajadas.Name = "txtHorasTrabajadas";
             this.txtHorasTrabajadas.Size = new System.Drawing.Size(135, 20);
             this.txtHorasTrabajadas.TabIndex = 10;
-            // 
-            // btnHoraActual
-            // 
-            this.btnHoraActual.Location = new System.Drawing.Point(59, 274);
-            this.btnHoraActual.Name = "btnHoraActual";
-            this.btnHoraActual.Size = new System.Drawing.Size(73, 44);
-            this.btnHoraActual.TabIndex = 11;
-            this.btnHoraActual.Text = "Hora Actual";
-            this.btnHoraActual.UseVisualStyleBackColor = true;
-            this.btnHoraActual.Click += new System.EventHandler(this.btnHoraActual_Click);
-            // 
-            // lblHoraActual
-            // 
-            this.lblHoraActual.AutoSize = true;
-            this.lblHoraActual.Location = new System.Drawing.Point(159, 290);
-            this.lblHoraActual.Name = "lblHoraActual";
-            this.lblHoraActual.Size = new System.Drawing.Size(0, 13);
-            this.lblHoraActual.TabIndex = 12;
+            this.txtHorasTrabajadas.TextChanged += new System.EventHandler(this.txtHorasTrabajadas_TextChanged);
             // 
             // txtDepartamento
             // 
@@ -195,17 +180,31 @@
             this.txtMarcacionSalida.TabIndex = 16;
             this.txtMarcacionSalida.TextChanged += new System.EventHandler(this.txtMarcacionSalida_TextChanged);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
+            // lblHoraActual
+            // 
+            this.lblHoraActual.AutoSize = true;
+            this.lblHoraActual.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoraActual.Location = new System.Drawing.Point(64, 232);
+            this.lblHoraActual.Name = "lblHoraActual";
+            this.lblHoraActual.Size = new System.Drawing.Size(0, 31);
+            this.lblHoraActual.TabIndex = 17;
+            // 
             // frmMarcacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 344);
+            this.Controls.Add(this.lblHoraActual);
             this.Controls.Add(this.txtMarcacionSalida);
             this.Controls.Add(this.txtMarcacionEntrada);
             this.Controls.Add(this.txtCargo);
             this.Controls.Add(this.txtDepartamento);
-            this.Controls.Add(this.lblHoraActual);
-            this.Controls.Add(this.btnHoraActual);
             this.Controls.Add(this.txtHorasTrabajadas);
             this.Controls.Add(this.lblHorasTrabajadas);
             this.Controls.Add(this.lstMarcacion);
@@ -238,11 +237,11 @@
         private System.Windows.Forms.ListBox lstMarcacion;
         private System.Windows.Forms.Label lblHorasTrabajadas;
         private System.Windows.Forms.TextBox txtHorasTrabajadas;
-        private System.Windows.Forms.Button btnHoraActual;
-        private System.Windows.Forms.Label lblHoraActual;
         private System.Windows.Forms.TextBox txtDepartamento;
         private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.TextBox txtMarcacionEntrada;
         private System.Windows.Forms.TextBox txtMarcacionSalida;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblHoraActual;
     }
 }

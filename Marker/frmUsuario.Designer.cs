@@ -81,6 +81,7 @@
             // 
             // cboTipoUsuario
             // 
+            this.cboTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoUsuario.FormattingEnabled = true;
             this.cboTipoUsuario.Location = new System.Drawing.Point(457, 239);
             this.cboTipoUsuario.Name = "cboTipoUsuario";
@@ -98,6 +99,7 @@
             // 
             // cboCargo
             // 
+            this.cboCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCargo.FormattingEnabled = true;
             this.cboCargo.Location = new System.Drawing.Point(457, 203);
             this.cboCargo.Name = "cboCargo";
@@ -115,6 +117,7 @@
             // 
             // cboDepartamento
             // 
+            this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDepartamento.FormattingEnabled = true;
             this.cboDepartamento.Location = new System.Drawing.Point(457, 170);
             this.cboDepartamento.Name = "cboDepartamento";

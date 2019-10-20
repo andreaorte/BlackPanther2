@@ -14,6 +14,10 @@ namespace Marker
         
     {
         string modo;
+        
+        DateTime HoraEntrada;
+        DateTime HoraSalida;
+       
         public frmMarcacion()
         {
             InitializeComponent();
@@ -56,18 +60,24 @@ namespace Marker
             {
                 DateTime hora;
                 hora = DateTime.Now;
+                HoraEntrada = hora;
                 txtMarcacionEntrada.Text = hora.ToShortTimeString();
             }
             else if (modo=="salida")
             {
                 DateTime hora;
                 hora = DateTime.Now;
+                HoraSalida = hora;
                 txtMarcacionSalida.Text = hora.ToShortTimeString();
+
+                
+
             }
             Marcacion m = new Marcacion();
             m.empleado = (Usuari)cboEmpleado.SelectedItem;
             m.MarcacionEntrada = txtMarcacionEntrada.Text;
             m.MarcacionSalida = txtMarcacionSalida.Text;
+            m.HorasTrabajadas = txtHorasTrabajadas.Text;
            
             return m;
         }
@@ -85,14 +95,21 @@ namespace Marker
         {
           
            
-            lblHoraActual.Text = DateTime.Now.ToShortTimeString();
+           lblHoraActual.Text = DateTime.Now.ToShortTimeString();
         }
 
         private void frmMarcacion_Load(object sender, EventArgs e)
         {
-           ActualizarListaMarcacion();
+            lblHoraActual.Text = DateTime.Now.ToLongTimeString();
+            ActualizarListaMarcacion();
             cboEmpleado.DataSource = Usuari.ObtenerUsuario();
             cboEmpleado.SelectedItem = null;
+            txtDepartamento.Enabled = false;
+            txtCargo.Enabled = false;
+            txtMarcacionEntrada.Enabled = false;
+            txtMarcacionSalida.Enabled = false;
+            txtHorasTrabajadas.Enabled = false;
+                
         }
 
         private void ActualizarListaMarcacion()
@@ -115,6 +132,7 @@ namespace Marker
                 cboEmpleado.SelectedItem = m.empleado;
                 txtMarcacionEntrada.Text = m.MarcacionEntrada;
                 txtMarcacionSalida.Text = m.MarcacionSalida;
+                txtHorasTrabajadas.Text = m.HorasTrabajadas;
                 if ( txtMarcacionEntrada.Text != "" && txtMarcacionSalida.Text != "" )
                 {
                     BloquearEntrada();
@@ -161,7 +179,15 @@ namespace Marker
                     //hora = DateTime.Now;
                     //txtMarcacionSalida.Text = hora.ToShortTimeString();
                     Marcacion.listaMarcacion[index] = ObtenerFormularioMarcacion();
+                     ObtenerHorasTrabajadas();
                     ActualizarListaMarcacion();
+                   
+
+                    //double HoraTrabajada;
+                    //HoraTrabajada = Convert.ToDouble(txtMarcacionEntrada.Text) - Convert.ToDouble(txtMarcacionSalida.Text);
+                    //txtHorasTrabajadas.Text = Convert.ToString(HoraTrabajada);
+
+
                     MessageBox.Show("Salida Marcada Exitosamente");
                     BloquearSalida();
 
@@ -173,7 +199,6 @@ namespace Marker
 
         }
 
-        
 
         private void BloquearSalida()
         {
@@ -188,10 +213,26 @@ namespace Marker
 
         private void cboEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LimpiarFormulario();
             
+            LimpiarFormulario();
+
         }
 
+        private void ObtenerHorasTrabajadas()
+        {
+            double aux;
+            double hora;
+            double minu;
+            hora = Convert.ToDouble(HoraSalida.Subtract(HoraEntrada).Hours);
+            minu = Convert.ToDouble(HoraSalida.Subtract(HoraEntrada).Minutes);
+            aux = (hora+(minu / 60));
+
+
+            txtHorasTrabajadas.Text = aux.ToString();
+
+            //txtHorasTrabajadas.Text= HoraSalida.Subtract(HoraEntrada).Hours.ToString();
+
+        }
         private void LimpiarFormulario()
         {
             txtMarcacionEntrada.Text = "";
@@ -202,6 +243,21 @@ namespace Marker
         private void txtMarcacionSalida_TextChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void txtHorasTrabajadas_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lblHoraActual_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            lblHoraActual.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }
