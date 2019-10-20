@@ -19,6 +19,10 @@ namespace Marker
         }
 
         private void Login() { }
-        
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
