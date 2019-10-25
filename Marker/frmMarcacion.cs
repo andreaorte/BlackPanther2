@@ -33,9 +33,6 @@ namespace Marker
             {
                 modo = "entrada";
                 var m = ObtenerFormularioMarcacion();
-                //DateTime hora;
-                //hora = DateTime.Now;
-                //txtMarcacionEntrada.Text = hora.ToShortTimeString();
                 Marcacion.AgregarMarcacion(m);
                 MessageBox.Show("Entrada Marcada Exitosamente");
                 DesbloquearSalida();
@@ -69,6 +66,7 @@ namespace Marker
                 hora = DateTime.Now;
                 HoraSalida = hora;
                 txtMarcacionSalida.Text = hora.ToShortTimeString();
+                ObtenerHorasTrabajadas();
 
                 
 
@@ -127,6 +125,7 @@ namespace Marker
         private void lstMarcacion_Click(object sender, EventArgs e)
         {
             Marcacion m = (Marcacion)lstMarcacion.SelectedItem;
+            
             if (m != null)
             {
                 cboEmpleado.SelectedItem = m.empleado;
@@ -137,16 +136,18 @@ namespace Marker
                 {
                     BloquearEntrada();
                     BloquearSalida();
+             
+
                 }
                 else if ( txtMarcacionSalida.Text =="" && txtMarcacionEntrada.Text != "")
                 {
                     DesbloquearSalida();
-                    BloquearEntrada();
+                    BloquearEntrada();                 
                 }
                 
              
             }
-           
+            
 
            
         }
@@ -162,34 +163,19 @@ namespace Marker
             {
                 if (txtMarcacionSalida.Text != "")
                 {
-                    //MessageBox.Show("Usted ya marco su salida");
                     btnMarcarSalida.Enabled = false;
 
                 }
                 else if (txtMarcacionSalida.Text == "")
                 
                 {
-
-                    //int indice = lstDepartamento.SelectedIndex;
-                    //Departamento.EditarDepartamento(d, indice);
-                    //ActualizarListaDepartamentos();
-
                     int index = lstMarcacion.SelectedIndex;
-                    //DateTime hora;
-                    //hora = DateTime.Now;
-                    //txtMarcacionSalida.Text = hora.ToShortTimeString();
                     Marcacion.listaMarcacion[index] = ObtenerFormularioMarcacion();
-                     ObtenerHorasTrabajadas();
-                    ActualizarListaMarcacion();
-                   
-
-                    //double HoraTrabajada;
-                    //HoraTrabajada = Convert.ToDouble(txtMarcacionEntrada.Text) - Convert.ToDouble(txtMarcacionSalida.Text);
-                    //txtHorasTrabajadas.Text = Convert.ToString(HoraTrabajada);
-
-
-                    MessageBox.Show("Salida Marcada Exitosamente");
+                    ActualizarListaMarcacion();                  
+                   MessageBox.Show("Salida Marcada Exitosamente");
                     BloquearSalida();
+                    LimpiarFormulario();
+                    //txtHorasTrabajadas.Text = "";
 
                 }
             }
@@ -237,6 +223,8 @@ namespace Marker
         {
             txtMarcacionEntrada.Text = "";
             txtMarcacionSalida.Text = "";
+            txtHorasTrabajadas.Text = "";
+            cboEmpleado.SelectedItem = null;
             btnMarcarEntrada.Enabled = true;
         }
 
