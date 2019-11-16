@@ -123,9 +123,22 @@ namespace ClasesMarcacion
         }
 
 
-        public static void EliminiarUsuario(Usuari user)
+        public static void EliminarUsuario(Usuari p)
         {
-            listarUsuario.Remove(user);
+           
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+
+            {
+                con.Open();
+                string SENTENCIA_SQL = "delete from Usuario where Id = @Id";
+
+                SqlCommand cmd = new SqlCommand(SENTENCIA_SQL, con);
+                SqlParameter p9 = new SqlParameter("@Id", p.Id);
+                p9.SqlDbType = SqlDbType.Int;
+                cmd.Parameters.Add(p9);
+
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public static List<Usuari> ObtenerUsuario()
