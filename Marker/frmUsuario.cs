@@ -276,7 +276,7 @@ namespace Marker
             else
             {
                 Usuari u = (Usuari)lstUsuario.SelectedItem;
-                Usuari.EliminiarUsuario(u);
+                Usuari.EliminarUsuario(u);
                 ActualizarListaUser();
                 LimpiarFormulario();
             }
