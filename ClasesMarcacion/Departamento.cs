@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +10,12 @@ namespace ClasesMarcacion
 {
     public class Departamento
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public String descripcion { get; set; }
 
         public static List<Departamento> listaDepartamento = new List<Departamento>();
         public Departamento() { }
-        public Departamento(string Id, string descripcion)
+        public Departamento(int Id, string descripcion)
         {
 
             this.Id = Id;
@@ -34,23 +36,105 @@ namespace ClasesMarcacion
 
         public static void AgregarDepartamento(Departamento d)
         {
-            listaDepartamentos.Add(d);
+            //listaProveedores.Add(p);
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+
+            {
+                con.Open(); //Abrimos la conex con la BD
+                string textoCmd = "insert into Departamento (NombreDepartamento) VALUES (@NombreDepartamento)";
+                SqlCommand cmd = new SqlCommand(textoCmd, con);
+
+                //PARAMETROS
+                SqlParameter p1 = new SqlParameter("@NombreCargo", d.descripcion);
+
+
+                //Le decimos a los parametros de que tipo de datos son
+                p1.SqlDbType = SqlDbType.VarChar;
+
+
+                //Agragamos los parametros al command
+                cmd.Parameters.Add(p1);
+
+
+                cmd.ExecuteNonQuery();
+
+            }
+
         }
 
         public static void EliminarDepartamento(Departamento d)
         {
-            listaDepartamentos.Remove(d);
+
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+
+            {
+                con.Open();
+                string SENTENCIA_SQL = "delete from Departamento where Id = @Id";
+
+                SqlCommand cmd = new SqlCommand(SENTENCIA_SQL, con);
+                SqlParameter p2 = new SqlParameter("@Id", d.Id);
+                p2.SqlDbType = SqlDbType.Int;
+                cmd.Parameters.Add(p2);
+
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public static void EditarDepartamento(Departamento d, int indice)
         {
+            //listaProveedores[index] = p;
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+            {
+                con.Open();
+                string textoCMD = "UPDATE Departamento SET NombreDepartamento = @nombreDepartamento where Id = @Id";
 
-            Departamento.listaDepartamentos[indice] = d;
+                SqlCommand cmd = new SqlCommand(textoCMD, con);
+
+                //DEFINICION DE PARAMETROS
+                SqlParameter p1 = new SqlParameter("@nombreDepartamento", d.descripcion);
+                SqlParameter p2 = new SqlParameter("@Id", d.Id);
+
+
+                //Le decimos a los parametros de que tipo de datos son
+                p1.SqlDbType = SqlDbType.VarChar;
+                p2.SqlDbType = SqlDbType.Int;
+
+                cmd.Parameters.Add(p1);
+                cmd.Parameters.Add(p2);
+
+
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public static List<Departamento> ObtenerDepartamento()
         {
-            return listaDepartamento;
+
+            Departamento departamento;
+            listaDepartamento.Clear();
+
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+
+            {
+                con.Open();
+                string textoCMD = "Select * from Departamento";
+
+                SqlCommand cmd = new SqlCommand(textoCMD, con);
+
+                SqlDataReader elLectorDeDatos = cmd.ExecuteReader();
+
+                while (elLectorDeDatos.Read())
+                {
+                    departamento = new Departamento();
+                    departamento.Id = elLectorDeDatos.GetInt32(0);
+                    departamento.descripcion = elLectorDeDatos.GetString(1);
+
+                    listaDepartamento.Add(departamento);
+                }
+
+
+                return listaDepartamento;
+            }
         }
     }
 }

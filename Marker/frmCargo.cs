@@ -52,12 +52,12 @@ namespace Marker
             modo = "AGREGAR";
             LimpiarFormulario();
             DesbloquearFormularios();
-            txtIdCargo.Focus();
+            txtNombreCargo.Focus();
         }
 
         private void DesbloquearFormularios()
         {
-            txtIdCargo.Enabled = true;
+            txtIdCargo.Enabled = false;
             txtNombreCargo.Enabled = true;
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
@@ -99,7 +99,7 @@ namespace Marker
             {
                 modo = "EDITAR";
                 DesbloquearFormularios();
-                txtIdCargo.Focus();
+                txtNombreCargo.Focus();
             }
         }
 
@@ -140,7 +140,7 @@ namespace Marker
         private Cargo ObtenerDatosFormulario()
         {
             Cargo cargo = new Cargo();
-            cargo.idCargo = txtIdCargo.Text;
+            cargo.idCargo = Convert.ToInt16(txtIdCargo.Text); 
             cargo.descripcion = txtNombreCargo.Text;
             return cargo;
 
@@ -162,7 +162,7 @@ namespace Marker
             Cargo c = (Cargo)lstCargo.SelectedItem;
             if (c != null)
             {
-                txtIdCargo.Text = c.idCargo;
+                txtIdCargo.Text = Convert.ToString(c.idCargo);
                 txtNombreCargo.Text = c.descripcion;
 
             }
@@ -180,7 +180,7 @@ namespace Marker
             Cargo c = (Cargo)lstCargo.SelectedItem;
             if (c != null)
             {
-                txtIdCargo.Text = c.idCargo;
+                txtIdCargo.Text = Convert.ToString(c.idCargo); 
                 txtNombreCargo.Text = c.descripcion;
 
             }
@@ -188,10 +188,18 @@ namespace Marker
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
+            
+
+            //Cargo carg = new Cargo();;
+            //carg.descripcion = txtNombreCargo.Text;
+
+
+            //Cargo.AgregarCargo(carg);
+
             modo = "AGREGAR";
             LimpiarFormulario();
             DesbloquearFormularios();
-            txtIdCargo.Focus();
+            txtNombreCargo.Focus();
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)

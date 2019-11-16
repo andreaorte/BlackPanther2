@@ -29,7 +29,7 @@ namespace Marker
 
         private void DesbloquearFormularios()
         {
-            txtIdDepartamento.Enabled = true;
+            txtIdDepartamento.Enabled = false;
             txtNombreDepartamento.Enabled = true;
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
@@ -110,7 +110,7 @@ namespace Marker
         private Departamento ObtenerDatosFormulario()
         {
             Departamento departamento = new Departamento();
-            departamento.Id = txtIdDepartamento.Text;
+            departamento.Id = Convert.ToInt16(txtIdDepartamento.Text);
             departamento.descripcion = txtNombreDepartamento.Text;
             return departamento;
 
@@ -161,7 +161,7 @@ namespace Marker
             Departamento d = (Departamento)lstDepartamento.SelectedItem;
             if (d != null)
             {
-                txtIdDepartamento.Text = d.Id;
+                txtIdDepartamento.Text = Convert.ToString(d.Id);
                 txtNombreDepartamento.Text = d.descripcion;
 
             }
@@ -179,7 +179,7 @@ namespace Marker
             Departamento d = (Departamento)lstDepartamento.SelectedItem;
             if (d != null)
             {
-                txtIdDepartamento.Text = d.Id;
+                txtIdDepartamento.Text = Convert.ToString(d.Id); 
                 txtNombreDepartamento.Text = d.descripcion;
 
             }
