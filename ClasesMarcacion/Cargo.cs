@@ -139,5 +139,25 @@ namespace ClasesMarcacion
             }
 
         }
+        public static Cargo ObtenerCar(int id)
+        {
+            Cargo cargo = null;
+
+            if (listaCargo.Count == 0)
+            {
+                Cargo.ObtenerCargo();
+            }
+
+            foreach (Cargo p in listaCargo)
+            {
+                if (p.idCargo == id)
+                {
+                    cargo = p;
+                    break;
+                }
+            }
+
+            return cargo;
+        }
     }
 }

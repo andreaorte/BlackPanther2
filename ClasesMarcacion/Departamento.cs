@@ -136,5 +136,26 @@ namespace ClasesMarcacion
                 return listaDepartamento;
             }
         }
+
+        public static Departamento ObtenerDpto(int id)
+        {
+            Departamento departamento = null;
+
+            if (listaDepartamento.Count == 0)
+            {
+                Departamento.ObtenerDepartamento();
+            }
+
+            foreach (Departamento p in listaDepartamento)
+            {
+                if (p.Id == id)
+                {
+                    departamento = p;
+                    break;
+                }
+            }
+
+            return departamento;
+        }
     }
 }

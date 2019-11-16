@@ -143,7 +143,42 @@ namespace ClasesMarcacion
 
         public static List<Usuari> ObtenerUsuario()
         {
-            return listarUsuario;
+
+
+            Usuari usuario;
+            listarUsuario.Clear();
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+
+            {
+                con.Open();
+                string textoCMD = "Select * from Usuario";
+
+                SqlCommand cmd = new SqlCommand(textoCMD, con);
+
+                SqlDataReader elLectorDeDatos = cmd.ExecuteReader();
+
+               
+
+                while (elLectorDeDatos.Read())
+                {
+                    usuario = new Usuari();
+                    usuario.Id = elLectorDeDatos.GetInt32(0);
+                    usuario.Nombre = elLectorDeDatos.GetString(1);
+                    usuario.Apellido = elLectorDeDatos.GetString(2);
+                    usuario.NroDocumento = elLectorDeDatos.GetString(3);
+                    usuario.CodigoHumano = elLectorDeDatos.GetString(4);
+                    usuario.departamento = Departamento.ObtenerDpto(elLectorDeDatos.GetInt32(6));
+                    usuario.cargo = Cargo.ObtenerCar(elLectorDeDatos.GetInt32(6));
+                    usuario.FechaIngreso = elLectorDeDatos.GetDateTime(3);
+                    usuario.tipoUsuario = (TipoUsuario)elLectorDeDatos.GetInt32(4);
+
+                    listarUsuario.Add(usuario);
+                }
+
+                return listarUsuario;
+
+            }
+
         }
 
         public override string ToString()
