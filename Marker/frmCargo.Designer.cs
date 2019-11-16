@@ -79,6 +79,7 @@
             this.lstCargo.Size = new System.Drawing.Size(194, 186);
             this.lstCargo.TabIndex = 37;
             this.lstCargo.Click += new System.EventHandler(this.lstCargo_Click_1);
+            this.lstCargo.SelectedIndexChanged += new System.EventHandler(this.lstCargo_SelectedIndexChanged);
             // 
             // btnLimpiar
             // 

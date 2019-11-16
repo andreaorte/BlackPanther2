@@ -79,6 +79,7 @@
             this.lstDepartamento.Size = new System.Drawing.Size(194, 186);
             this.lstDepartamento.TabIndex = 48;
             this.lstDepartamento.Click += new System.EventHandler(this.lstDepartamento_Click_1);
+            this.lstDepartamento.SelectedIndexChanged += new System.EventHandler(this.lstDepartamento_SelectedIndexChanged);
             // 
             // btnLimpiar
             // 
@@ -158,7 +159,7 @@
             this.Controls.Add(this.lblIdDepartamento);
             this.Controls.Add(this.txtNombreDepartamento);
             this.Controls.Add(this.txtIdDepartamento);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDepartamento";
             this.Text = "frmDepartamento";
             this.Load += new System.EventHandler(this.frmDepartamento_Load_1);

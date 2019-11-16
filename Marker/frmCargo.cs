@@ -276,6 +276,21 @@ namespace Marker
         {
             LimpiarFormulario();
         }
+
+        private void lstCargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Cargo c = (Cargo)lstCargo.SelectedItem;
+
+            if (c != null)
+            {
+                txtIdCargo.Text = Convert.ToString(c.idCargo);
+                txtNombreCargo.Text = c.descripcion;
+
+            }
+
+
+
+        }
     }
 }
 

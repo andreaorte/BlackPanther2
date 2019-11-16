@@ -264,5 +264,18 @@ namespace Marker
         {
             LimpiarFormulario();
         }
+
+        private void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Departamento d = (Departamento)lstDepartamento.SelectedItem;
+
+            if (d != null)
+            {
+                txtIdDepartamento.Text = Convert.ToString(d.Id);
+                txtNombreDepartamento.Text = d.descripcion;
+
+            }
+
+        }
     }
 }
