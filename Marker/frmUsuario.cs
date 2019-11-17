@@ -35,11 +35,11 @@ namespace Marker
             modo = "AGREGAR";
             LimpiarFormulario();
             DesbloquearFormulario();
-            txtCodigoHumano.Focus();
+            txtIdUsuario.Focus();
         }
         private void LimpiarFormulario()
         {
-            txtCodigoHumano.Text = "";
+            txtIdUsuario.Text = "";
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtNroDocumento.Text = "";
@@ -67,7 +67,7 @@ namespace Marker
         {
             txtNombre.Enabled = false;
             txtApellido.Enabled = false;
-            txtCodigoHumano.Enabled = false;
+            txtIdUsuario.Enabled = false;
             txtNroDocumento.Enabled = false;
             cboCargo.Enabled = false;
             cboDepartamento.Enabled = false;
@@ -89,7 +89,7 @@ namespace Marker
         {
             txtNombre.Enabled = true;
             txtApellido.Enabled = true;
-            txtCodigoHumano.Enabled = true;
+            txtIdUsuario.Enabled = true;
             txtNroDocumento.Enabled = true;
             cboCargo.Enabled = true;
             cboDepartamento.Enabled = true;
@@ -150,8 +150,7 @@ namespace Marker
 
         private Usuari ObtenerUserFormulario()
         {
-            Usuari u = new Usuari();
-            u.CodigoHumano = txtCodigoHumano.Text;
+            Usuari u = new Usuari();        
             u.Nombre = txtNombre.Text;
             u.Apellido= txtApellido.Text;
             u.NroDocumento = txtNroDocumento.Text;
@@ -168,7 +167,7 @@ namespace Marker
         {
                 modo = "EDITAR";
                 DesbloquearFormulario();
-                txtCodigoHumano.Focus();
+                txtIdUsuario.Focus();
             
 
         }
@@ -196,7 +195,7 @@ namespace Marker
             Usuari u = (Usuari)lstUsuario.SelectedItem;
             if (u != null)
             {
-                txtCodigoHumano.Text = u.CodigoHumano;
+                txtIdUsuario.Text = u.Id;
                 txtNombre.Text = u.Nombre;
                 txtApellido.Text = u.Apellido;
                 txtNroDocumento.Text = u.NroDocumento;
@@ -228,7 +227,7 @@ namespace Marker
             {
                 txtNombre.Text = u.Nombre;
                 txtApellido.Text = u.Apellido;
-                txtCodigoHumano.Text = u.CodigoHumano;
+                txtIdUsuario.Text = Convert.ToString(u.Id);
                 txtNroDocumento.Text = u.NroDocumento;
                 cboDepartamento.SelectedItem = u.departamento;
                 cboCargo.SelectedItem = u.cargo;
@@ -245,7 +244,7 @@ namespace Marker
             modo = "AGREGAR";
             LimpiarFormulario();
             DesbloquearFormulario();
-            txtCodigoHumano.Focus();
+            txtIdUsuario.Focus();
         }
 
         private void lstUsuario_Click_1(object sender, EventArgs e)
@@ -263,7 +262,7 @@ namespace Marker
             {
                 modo = "EDITAR";
                 DesbloquearFormulario();
-                txtCodigoHumano.Focus();
+                txtIdUsuario.Focus();
             }
         }
 

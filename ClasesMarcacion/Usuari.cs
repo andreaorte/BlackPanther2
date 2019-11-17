@@ -19,7 +19,7 @@ namespace ClasesMarcacion
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string NroDocumento { get; set; }
-        public string CodigoHumano { get; set; }
+        //public string CodigoHumano { get; set; }
         public Departamento departamento   { get; set; }
         public Cargo cargo  { get; set; }
         public DateTime FechaIngreso  { get; set; }
@@ -37,27 +37,27 @@ namespace ClasesMarcacion
 
             {
                 con.Open(); 
-                string textoCmd = "insert into Usuario (Nombre, Apellido, NroDocumento, CodigoHumano, departamento, cargo, FechaIngreso, tipoUsuario) VALUES (@Nombre, @Apellido, @NroDocumneto, @CodigoHumano, @departamento, @cargo, @FechaIngreso, @tipoUsuario)";
+                string textoCmd = "insert into Usuario (Nombre, Apellido, NroDocumento,  departamento, cargo, FechaIngreso, tipoUsuario) VALUES (@Nombre, @Apellido, @NroDocumneto,  @departamento, @cargo, @FechaIngreso, @tipoUsuario)";
                 SqlCommand cmd = new SqlCommand(textoCmd, con);
 
                 SqlParameter p1 = new SqlParameter("@Nombre", p.Nombre);
                 SqlParameter p2 = new SqlParameter("@Apellido", p.Apellido);
                 SqlParameter p3 = new SqlParameter("@NroDocumneto", p.NroDocumento);
-                SqlParameter p4 = new SqlParameter("@CodigoHumano", p.CodigoHumano);
-                SqlParameter p5 = new SqlParameter("@departamento", p.departamento);
-                SqlParameter p6 = new SqlParameter("@cargo", p.cargo);
-                SqlParameter p7 = new SqlParameter("@FechaIngreso", p.FechaIngreso);
-                SqlParameter p8 = new SqlParameter("@tipoUsuario", p.tipoUsuario);
+                //SqlParameter p4 = new SqlParameter("@CodigoHumano", p.CodigoHumano);
+                SqlParameter p4 = new SqlParameter("@departamento", p.departamento);
+                SqlParameter p5 = new SqlParameter("@cargo", p.cargo);
+                SqlParameter p6 = new SqlParameter("@FechaIngreso", p.FechaIngreso);
+                SqlParameter p7 = new SqlParameter("@tipoUsuario", p.tipoUsuario);
 
                 
                 p1.SqlDbType = SqlDbType.VarChar;
                 p2.SqlDbType = SqlDbType.VarChar;
                 p3.SqlDbType = SqlDbType.VarChar;
-                p4.SqlDbType = SqlDbType.VarChar;
+                //p4.SqlDbType = SqlDbType.VarChar;
+                p4.SqlDbType = SqlDbType.Int;
                 p5.SqlDbType = SqlDbType.Int;
-                p6.SqlDbType = SqlDbType.Int;
-                p7.SqlDbType = SqlDbType.DateTime;
-                p8.SqlDbType = SqlDbType.Int;
+                p6.SqlDbType = SqlDbType.DateTime;
+                p7.SqlDbType = SqlDbType.Int;
                 
 
                 cmd.Parameters.Add(p1);
@@ -67,7 +67,7 @@ namespace ClasesMarcacion
                 cmd.Parameters.Add(p5);
                 cmd.Parameters.Add(p6);
                 cmd.Parameters.Add(p7);
-                cmd.Parameters.Add(p8);
+                
 
                 cmd.ExecuteNonQuery();
 

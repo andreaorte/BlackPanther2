@@ -48,9 +48,9 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblNroDocumento = new System.Windows.Forms.Label();
-            this.lblCodigoHumano = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
-            this.txtCodigoHumano = new System.Windows.Forms.TextBox();
+            this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // dtpuFechaIngreso
@@ -234,14 +234,14 @@
             this.lblNroDocumento.TabIndex = 70;
             this.lblNroDocumento.Text = "Nro de documento:";
             // 
-            // lblCodigoHumano
+            // lblId
             // 
-            this.lblCodigoHumano.AutoSize = true;
-            this.lblCodigoHumano.Location = new System.Drawing.Point(325, 62);
-            this.lblCodigoHumano.Name = "lblCodigoHumano";
-            this.lblCodigoHumano.Size = new System.Drawing.Size(86, 13);
-            this.lblCodigoHumano.TabIndex = 69;
-            this.lblCodigoHumano.Text = "Código Humano:";
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(325, 62);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(61, 13);
+            this.lblId.TabIndex = 69;
+            this.lblId.Text = "Id_Usuario:";
             // 
             // txtNroDocumento
             // 
@@ -250,12 +250,12 @@
             this.txtNroDocumento.Size = new System.Drawing.Size(148, 20);
             this.txtNroDocumento.TabIndex = 1;
             // 
-            // txtCodigoHumano
+            // txtIdUsuario
             // 
-            this.txtCodigoHumano.Location = new System.Drawing.Point(457, 55);
-            this.txtCodigoHumano.Name = "txtCodigoHumano";
-            this.txtCodigoHumano.Size = new System.Drawing.Size(148, 20);
-            this.txtCodigoHumano.TabIndex = 0;
+            this.txtIdUsuario.Location = new System.Drawing.Point(457, 55);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.Size = new System.Drawing.Size(148, 20);
+            this.txtIdUsuario.TabIndex = 0;
             // 
             // frmUsuario
             // 
@@ -282,9 +282,9 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblNroDocumento);
-            this.Controls.Add(this.lblCodigoHumano);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.txtNroDocumento);
-            this.Controls.Add(this.txtCodigoHumano);
+            this.Controls.Add(this.txtIdUsuario);
             this.Name = "frmUsuario";
             this.Text = "frmUsuario";
             this.Load += new System.EventHandler(this.frmUsuario_Load);
@@ -315,8 +315,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label lblNroDocumento;
-        private System.Windows.Forms.Label lblCodigoHumano;
+        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtNroDocumento;
-        private System.Windows.Forms.TextBox txtCodigoHumano;
+        private System.Windows.Forms.TextBox txtIdUsuario;
     }
 }
